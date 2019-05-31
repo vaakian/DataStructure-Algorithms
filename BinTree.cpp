@@ -6,7 +6,6 @@ typedef struct NODE {
     NODE* pLeft;
     NODE* pRight;
 } NODE;
-// git bash
 NODE* createNode(int age);
 NODE* insertData(NODE* pRoot, int age);
 void travelTree(NODE* pRoot, string orient);
