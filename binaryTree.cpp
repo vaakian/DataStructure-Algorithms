@@ -9,20 +9,12 @@ typedef struct NODE {
 NODE* createNode(int age);
 NODE* insertData(NODE* pRoot, int age);
 void travelTree(NODE* pRoot, string orient);
-int getTreeDeepth(NODE* pRoot)
-{
-    if(pRoot) {
-        int leftDeepth = getTreeDeepth(pRoot->pLeft);
-        int rightDeepth = getTreeDeepth(pRoot->pRight);
-        return 1 + (leftDeepth >= rightDeepth ? leftDeepth: rightDeepth);
-    } else {
-        return 0; 
-    }
-}int getTreeDeepth(NODE* pRoot);
+int getTreeDeepth(NODE* pRoot);
+
 int main()
 {
-    int data[] = {125,456,498,54,-45,443};
-    NODE* pRoot = createNode(121233);
+    int data[] = {125, 456, 498, 54, -45, 443};
+    NODE* pRoot = createNode(-1);
     for(auto tempData: data)
         insertData(pRoot, tempData);
     auto a = 0;
@@ -79,17 +71,14 @@ void travelTree(NODE* pRoot, string orient)
     cout<<orient<<"=>"<<pRoot->age<<endl;
     if(pRoot->pLeft) travelTree(pRoot->pLeft, "left");
     if(pRoot->pRight) travelTree(pRoot->pRight, "right");
-<<<<<<< HEAD
-=======
 }
+
 int getTreeDeepth(NODE* pRoot)
 {
     if(pRoot) {
         int leftDeepth = getTreeDeepth(pRoot->pLeft);
         int rightDeepth = getTreeDeepth(pRoot->pRight);
         return 1 + (leftDeepth >= rightDeepth ? leftDeepth: rightDeepth);
-    } else {
-        return 0;
     }
->>>>>>> treeDeepth
+    return 0;
 }
