@@ -14,3 +14,7 @@ int main()
         }
     }
 }
+/* 重复字符用数组输出
+输入：AAABBCDDDDEF
+输出：3A2BC4DEF
+*/
