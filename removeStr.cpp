@@ -7,9 +7,11 @@ int Equal(char *orgin, char *del, int begin)
 {
     for(int i = 0; '\0'!=del[i];++i)
     {
-        if(del[i]!=orgin[begin+i])
+        // 如果某一位不相等，则不相等
+        if(del[i] != orgin[begin+i])
             return 0;
     }
+    // 相等
     return 1;
 }
 int RealSize(const char *str)
@@ -20,8 +22,8 @@ int RealSize(const char *str)
 }
 int main()
 {
-    char origin[100] = "abccabccabasxcv";
-    char del[100] = "abc";
+    char origin[100];
+    char del[100];
     int i = 0;
     int delSize = 0;
     scanf("%s%s", origin, del);
