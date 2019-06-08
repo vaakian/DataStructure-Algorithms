@@ -49,7 +49,26 @@ void fun3()
     }
     printf("max: %s", max);
 }
+/*
+12、（10分）编写函数fun(char *s, int *t)，
+其功能是：统计形参s所指字符串中数字字符出现的次数，
+并存放在形参t所指的变量中，最后在主函数中输出。
+例如，形参s所指的字符串为：abcdef35adgh3kjsdf7。
+输出结果为：4。
+ */
+// 记住，指针是无符号长整型，大小由系统内存空间范围决定。
+void fun12(const char *s, int *t)
+{
+    
+    for(*t = 0; *s; ++s)
+    {
+        if(*s <= '9' && *s >= '0') (*t)++;
+    }
+}
 int main()
 {
+    int t;
+    fun12("as213cx565323sd213", &t);
+    printf("count number: %d\n", t);
     return 0;
 }
