@@ -19,9 +19,17 @@ void Reverse(int *arr)
         arr[N-i-1] = temp;
     }
 }
-
+// 递归翻转法，i是开始，j是结尾。
+void Reverse3(int *arr, int i, int j)
+{
+    int temp;
+    temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+    if(i<j) Reverse3(arr, i+1, j-1);
+}
 // 从某个开始，到某一个结束，进行翻转
-void Reverse2(int *arr, int from, int count)
+void ReverseBetween(int *arr, int from, int count)
 {
     int i, temp;
     // 把arr+from-1 设置为数值起点
@@ -36,20 +44,13 @@ void Reverse2(int *arr, int from, int count)
     }
 }
 
-// 递归翻转法，i是开始，j是结尾。
-void Reverse3(int *arr, int i, int j)
-{
-    int temp;
-    temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
-    if(i<j) Reverse3(arr, i+1, j-1);
-}
+
 
 int main()
 {
     int arr[N] = {1,2,3,4,5,6,7,8,9,0,55};
-    Reverse3(arr, 0, N-1);
+    // Reverse3(arr, 0, N-1);
+    ReverseBetween(arr, 4, 5);
     for(int i = 0; i < N; i++)
     {
         printf("%d\n", arr[i]);
