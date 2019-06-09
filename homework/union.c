@@ -4,11 +4,12 @@
     现欲从低位存储地址开始，将其每个字节作为单独的一个ASCII码字符输出，
     试用共同体类型实现上述转换。
 */ 
+/*
+    19、已知一长度为2个字节的整数，现欲将其高位字节与低位字节相互交换后输出，试用共同体类型实现这一功能。
+ */
 
 int main()
-{
-    union mem {
-    /* 
+{ /* 
     1. 在函数中定义的每个变量-在栈中储存从高->低。
     2. 单个变量的首地址是最小地址，内存存取从小到大。
         如 int a; 假如int是4字节，内存地址如下[0, 1, 2, 3]，则&a是0。
@@ -17,10 +18,13 @@ int main()
     4. 数组永远从低到高。
     此题&n == c
     */
+    union mem {
+   
     int n;
     // 数组从低->高
     char c[4];
     }mem;
+    
     // scanf("%x", &mem.n);
     mem.n = 0x31323334;
     for(int i = 0; i < 4; i++)
@@ -28,5 +32,16 @@ int main()
         printf("%x -> %c\n", mem.c+i, mem.c[i]);
     }
     printf("%x\n", &mem.n);
+
+    // 高低位交换
+    union mem2 {
+        short n;
+        char c[2];
+    }mem2;
+
+    mem2.n = 0x3322;
+    char temp = mem2.c[0];
+    mem2.c[0] = mem2.c[1];
+    mem2.c[1] = temp;
     return 0;
 }

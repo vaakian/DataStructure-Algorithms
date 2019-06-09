@@ -32,19 +32,13 @@ void Reverse3(int *arr, int i, int j)
 void ReverseBetween(int *arr, int from, int count)
 {
     int i, temp;
-    // 把arr+from-1 设置为数值起点
-    // 要翻转的数组终点是count-1
-    // 所以把(0, count) 看做数组直接翻转就可以了
-    arr += from - 1;
-    for(i = 0; i<count/2; i++)
+    for(arr += from - 1, i = 0; i<count/2; i++)
     {
         temp = arr[i];
         arr[i] = arr[count-1-i];
         arr[count-1-i] = temp;
     }
 }
-
-
 
 int main()
 {
