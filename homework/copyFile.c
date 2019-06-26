@@ -13,6 +13,7 @@ void CopyFile(char *fname1, const char *fname2)
     if(origin && dest) {
         while((c=fgetc(origin)) != EOF)
         {
+            // fputc, fgetc会移动文件指针
             fputc(c, dest);
             putchar(c);
         }
