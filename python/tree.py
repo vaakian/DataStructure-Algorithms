@@ -11,7 +11,6 @@ def Preorder(root):
         return
     print(root.value)
     Preorder(root.left)
-    
     Preorder(root.right)
 def Insert(root, value):
     if value > root.value:
