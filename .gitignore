@@ -27,3 +27,6 @@ yarn-error.log*
 
 #vscode user settings
 /.vscode
+ccf-solution/temp_stl/a.out
+ccf-solution/a.out
+ccf-solution/kh
