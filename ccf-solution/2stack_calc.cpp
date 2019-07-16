@@ -2,7 +2,7 @@
 #include<string>
 #include<vector>
 using namespace std; 
-// 
+// test
 int calc(int x, char opt, int y) {
     int result;
     if(opt == '/') result = x/y;
