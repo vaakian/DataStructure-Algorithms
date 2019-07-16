@@ -1,7 +1,8 @@
 #include<iostream>
 #include<string>
 #include<vector>
-using namespace std;
+using namespace std; 
+// 
 int calc(int x, char opt, int y) {
     int result;
     if(opt == '/') result = x/y;
