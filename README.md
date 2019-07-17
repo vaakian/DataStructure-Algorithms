@@ -63,13 +63,13 @@
     ```C++
     vector<int> vec; // empty vector
     vector<int> vec(n); // create n elements, val 0
-    vector<int> vec(n, 5) // create n elements, val 5
-    vector<int> vec2(vec) // copy a vector
-    vector<int>{1, 2, 3, 4} // create a anonymous vector
-    vector<int> vec = {1, 2, 3, 4} // init vector
+    vector<int> vec(n, 5); // create n elements, val 5
+    vector<int> vec2(vec); // copy a vector
+    vector<int>{1, 2, 3, 4}; // create a anonymous vector
+    vector<int> vec = {1, 2, 3, 4}; // init vector
 
-    vec.erase(pos1, pos2) // real remove pos1~pos2
-    max_element(vec.begin(), vec.end()) // first max element's iterator.
+    vec.erase(pos1, pos2); // real remove pos1~pos2
+    max_element(vec.begin(), vec.end()); // first max element's iterator.
     ```
 - c++ array （sequential，accessible with index）
 
