@@ -17,7 +17,8 @@
 - 递归最重要先找到递归出口条件。
 
 ## c++ stl常用函数
-
+|function|notes|
+|:-------|:----|
 |max(a, b)|return max of a and b|
 |min(a, b)|return min of a and b|
 |max_element(pos1, pos2)| return max_element's iterator(read with *) between pos1 ~ pos2|
