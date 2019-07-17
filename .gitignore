@@ -30,3 +30,4 @@ yarn-error.log*
 ccf-solution/temp_stl/a.out
 ccf-solution/a.out
 ccf-solution/kh
+*.out
