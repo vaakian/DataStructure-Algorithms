@@ -6,7 +6,7 @@ class Product {
         this.name = name;
         this.price = price;
     }
-    
+
     SetName(name: String) {
         this.name = name;
     }
