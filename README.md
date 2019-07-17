@@ -113,19 +113,26 @@
     make_pair(first_val, second_val);
     ```
 
-- map 类似javascript，python字典
+- map 类似`javascript`，`python`字典
+
+- 本质上是储存的`pair`，所以可以使用`first（key）`，`second（value）`进行访问，插入。
 
     ```c++
-    map<key_type, val_type> user_id;
-    // add 
+    map<key_type, val_type> map_name;
+    map<string, int> user_id;
+    // insertion
     user_id["xwj"] = 5;
-    user_id["mht"] = 12;
+    // 传入pair插入
+    user_id.insert(make_pair("mht", 15));
+    user_id.insert(pair<string, int>("lqd", 12));
     // access
     cout << user_id["xwj"] << endl;
-    cout << user_id["mht] << endl;
-    auto finded = map.find(5);
+    cout << user_id["mht"] << endl;
+    // 创建迭代器
+    map<string, int>::iterator finded;
+    finded = map.find("lqd");
     if(finded == map.end()) 
         cout << "can't find." << endl;
     else 
-        cout << "found it." << endl;
+        cout << finded->first << endl;
     ```
