@@ -46,12 +46,12 @@ string parse(string md)
     string flag, content;
     unsigned int i;
     // 无标记则为段落p，解析行内标签
-    if (isalpha(md[0]))
+    if (md[0] != '#' && md[0] != '*')
     {
         return "<p>" + md + "</p>";
     }
     // 解析完成最上级就是行内标签，肯定就没有段标签了。比如<a href>, <em>
-    else if (md[0] == '<')
+    if (md[0] == '<')
     {
         return "<p>" + md + "</p>";
         // return md;
