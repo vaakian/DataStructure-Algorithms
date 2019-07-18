@@ -7,7 +7,7 @@ void parse_content(string &content)
 {
     auto em = make_pair("<em>", "</em>");
     int count = 1;
-    // 处理 _ em
+    // 处理 _ em, 注意可能开头就是_
     for (unsigned int i = 0; i < content.size(); ++i)
     {
         if (content[i] == '_')
@@ -27,8 +27,9 @@ void parse_content(string &content)
     {
         string href = "<a href=\"" + content.substr(mid + 2, end - mid - 2) + "\">";
         string text = content.substr(start + 1, mid - start - 1) + "</a>";
-        content.erase(content.begin() + start, content.begin() + end + 1);
-        content.insert(start, href + text);
+        // cout<<"content: "<<content<<endl;
+        content.replace(start, end-start+1, href + text);
+        // cout<<"after content: "<<content<<endl;
     }
 }
 string parse(string md)
@@ -41,29 +42,46 @@ string parse(string md)
     tags["####"] = make_pair("<h4>", "</h4>");
     tags["#####"] = make_pair("<h5>", "</h5>");
     tags["######"] = make_pair("<h6>", "</h6>");
+    tags["*"] = make_pair("<li>", "</li>");
     string flag, content;
     unsigned int i;
-    // 无标记则为段落p
+    // 无标记则为段落p，解析行内标签
     if (isalpha(md[0]))
     {
         return "<p>" + md + "</p>";
     }
-    for (i = 0; i < md.size(); ++i)
+    // 解析完成最上级就是行内标签，肯定就没有段标签了。比如<a href>, <em>
+    else if (md[0] == '<')
     {
-        if (md[i] == ' ')
-        {
-            flag = md.substr(0, i);
-            content = md.substr(i + 1, md.size());
-            break;
-        }
+        return "<p>" + md + "</p>";
+        // return md;
     }
-    return tags[flag].first + content + tags[flag].second;
+    // 正常标记解析
+    else
+    {
+        for (i = 0; i < md.size(); ++i)
+        {
+            if (md[i] == ' ')
+            {
+                flag = md.substr(0, i);
+                content = md.substr(i + 1, md.size());
+                md = tags[flag].first + content + tags[flag].second;
+                break;
+            }
+        }
+        return md;
+    }
 }
 int main()
 {
 
     string line;
+    // line = "[SB](http://tenss.cn)";
+    // parse_content(line);
+    // cout << line << endl;
+    // return 0;
     vector<string> lines;
+
     bool li_flag = false;
     bool line_flag = true;
     while (getline(cin, line))
@@ -75,12 +93,13 @@ int main()
         }
         else
         {
-            if (line_flag || line[0] =='*') {
+            if (line_flag || line[0] == '*')
+            {
                 lines.push_back(line);
                 line_flag = false;
             }
             else
-                lines[lines.size() - 1] += "\n"+line;
+                lines[lines.size() - 1] += "\n" + line;
         }
     }
     for (auto l : lines)
