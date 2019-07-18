@@ -17,6 +17,7 @@
 - 递归最重要先找到递归出口条件。
 
 ## c++ STL 刷题常用库函数
+
 |function|notes|
 |:-------|:----|
 |max(a, b)|return max of a and b|
@@ -38,9 +39,10 @@
 > erase 属于成员函数
 
 ## c++各自带数据结构成员函数
+
 |type|funcs|
 |:---|:----|
-|vector| front, back`（类似于栈顶）`, pop_back`（删除最后一个元素，不返回删除掉的元素，类似于栈的pop）`
+|vector| front, back`（类似于栈顶）`, pop_back`（删除最后一个元素，不返回删除掉的元素，类似于栈的pop）`|
 
 
 ## 各数据结构用法
