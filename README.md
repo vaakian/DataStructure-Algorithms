@@ -3,7 +3,7 @@
 
     2019-5-31 19:21:09
 
-## 以及记录一些日常代码心得
+## OTHER NOTES
  -  `python`, `nodejs`
 
  - the python lib `graphviz` is great for data visualization.
@@ -43,6 +43,9 @@
 |type|funcs|
 |:---|:----|
 |vector| front, back`（类似于栈顶）`, pop_back`（删除最后一个元素，不返回删除掉的元素，类似于栈的pop）`|
+|string| find("some")`返回一索引index`, substr(index, count)`截取子串`|
+|string| insert(index, "string")`从index处插入“string”`|
+|string| replace(index, count, "string") `将index~index+count的字符串替换为“string”`|
 
 
 ## 各数据结构用法
