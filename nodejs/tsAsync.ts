@@ -1,4 +1,4 @@
-const Login: Function = (pwd: String) => {
+function Login(pwd: String) {
     return new Promise<String>((reslove, reject) => {
         pwd === 'admin' ? reslove('success!'): reject('failed!');
     })

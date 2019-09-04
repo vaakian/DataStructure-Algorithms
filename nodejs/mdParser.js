@@ -14,8 +14,8 @@ const parseInline = function (line) {
     let mid = line.indexOf('](');
     let end = line.indexOf(')');
     if (start != -1 && mid != -1 && end != -1) {
-        let href = line.slice(start + 1, mid);
-        let text = line.slice(mid + 2, end);
+        let text = line.slice(start + 1, mid);
+        let href = line.slice(mid + 2, end);
         let newStr = `<a href="${href}">${text}</a>`;
         let repalceStr = line.slice(start, end + 1);
         line = line.replace(repalceStr, newStr);
@@ -64,16 +64,7 @@ const seperateStr = function (mdStr) {
     mdStr = mdStr.split('\n\n').filter(item => item);
     return mdStr.map(item => item.replace('\n', ''));
 }
-// class mdParser {
-//     constructor(mdContent) {
-//         this.mdContent = mdContent;
-//     }
-//     parse() {
-//         const lines = seperateStr(this.mdContent);
-//         const htmlContent = parseMd(lines);
-//         return htmlContent;
-//     }
-// }
+// 导出函数
 const parse = function(mdContent) {
     const lines = seperateStr(mdContent);
     const htmlContent = parseMd(lines);
