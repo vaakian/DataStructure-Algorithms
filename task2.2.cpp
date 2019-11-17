@@ -68,4 +68,5 @@ int main() {
         printf("Õ»×´Ì¬£º%s\n", IsEmpty(stack) ? "¿Õ": "·Ç¿Õ");
     }
     return 0;
+
 }

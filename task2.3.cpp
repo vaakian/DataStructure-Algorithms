@@ -43,7 +43,7 @@ int DeQueue(SqQueue *Q, char &e) {
 }
 
 void Traverse(SqQueue *Q) {
-    if (!IsEmpty(Q)) {
+    if (Q->front != Q->rear) {
         int i = Q->front;
         while (i % MAXQSIZE != Q->rear) {
             printf("%c", Q->base[i]);
